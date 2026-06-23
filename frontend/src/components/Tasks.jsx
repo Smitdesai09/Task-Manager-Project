@@ -1,11 +1,10 @@
 import { Task } from "./Task";
 
 export function Tasks({
-  tasks,
+  filter,
   setEdit,
   toggleTask,
   deleteTask,
-  filter,
   setFilter,
   filterTask,
 }) {
@@ -28,27 +27,33 @@ export function Tasks({
   });
 
   return (
-    <>
-      <div>
-        <button onClick={() => setFilter("All")}>
-          All{filter === "All" && "*"}
+    <div>
+      <div className="flex px-5 py-4 gap-2 bg-white w-full rounded-t-xl">
+        <button
+          className={`w-full md:w-fit px-8 py-2 md:py-1 rounded-lg lg:text-sm font-semibold ${filter === "All" ? "bg-red-100 text-red-500 border-0" : "border-2 border-gray-300"}`}
+          onClick={() => setFilter("All")}
+        >
+          All
         </button>
-        <button onClick={() => setFilter("Pending")}>
-          Pending{filter === "Pending" && "*"}
+        <button
+          className={`w-full md:w-fit px-8 py-2 md:py-1 rounded-lg lg:text-sm font-semibold ${filter === "Pending" ? "bg-red-100 text-red-500 border-0" : "border-2 border-gray-300"}`}
+          onClick={() => setFilter("Pending")}
+        >
+          Due
         </button>
-        <button onClick={() => setFilter("Completed")}>
-          Completed{filter === "Completed" && "*"}
+        <button
+          className={`w-full md:w-fit px-8 py-2 md:py-1 rounded-lg lg:text-sm font-semibold ${filter === "Completed" ? "bg-red-100 text-red-500 border-0" : "border-2 border-gray-300"}`}
+          onClick={() => setFilter("Completed")}
+        >
+          Done
         </button>
       </div>
-      {tasks.length > 0 && (
-        <div>
-          <progress
-            value={tasks.filter((task) => task.isCompleted === true).length}
-            max={tasks.length}
-          />
-        </div>
-      )}
-      {taskComponents}
-    </>
+      <div
+        className="flex flex-col h-130 md:h-70 lg:h-140 overflow-y-auto"
+        rounded-b-xl
+      >
+        {taskComponents}
+      </div>
+    </div>
   );
 }

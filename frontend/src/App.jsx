@@ -1,7 +1,9 @@
 import { useEffect, useState } from "react";
 import "./App.css";
-import { Tasks } from "./components/Tasks";
+import { Sidebar } from "./components/Sidebar";
+import { Progress } from "./components/Progress";
 import { TaskInput } from "./components/TaskInput";
+import { Tasks } from "./components/Tasks";
 
 function App() {
   const [tasks, setTasks] = useState(() => {
@@ -115,30 +117,40 @@ function App() {
     }
   };
 
+  const clearInput = () => {
+    setEditId(null);
+    setTitle("");
+    setDescription("");
+    setDueDate(new Date().toLocaleDateString("sv-SE"));
+  };
+
   return (
-    <>
-      <h1>Task Manager</h1>
-      <TaskInput
-        title={title}
-        description={description}
-        dueDate={dueDate}
-        setTitle={setTitle}
-        setDescription={setDescription}
-        setDueDate={setDueDate}
-        createTask={createTask}
-        editId={editId}
-        editTask={editTask}
-      />
-      <Tasks
-        tasks={tasks}
-        filter={filter}
-        setFilter={setFilter}
-        filterTask={filterTask}
-        setEdit={setEdit}
-        toggleTask={toggleTask}
-        deleteTask={deleteTask}
-      />
-    </>
+    <div className="flex lg:gap-5 h-screen">
+      <Sidebar />
+      <div className="flex flex-col min-h-0 flex-1 gap-2 p-4 lg:py-3 lg:pr-6">
+        <Progress tasks={tasks} />
+        <TaskInput
+          title={title}
+          description={description}
+          dueDate={dueDate}
+          setTitle={setTitle}
+          setDescription={setDescription}
+          setDueDate={setDueDate}
+          createTask={createTask}
+          editId={editId}
+          editTask={editTask}
+          clearInput={clearInput}
+        />
+        <Tasks
+          filter={filter}
+          setFilter={setFilter}
+          filterTask={filterTask}
+          setEdit={setEdit}
+          toggleTask={toggleTask}
+          deleteTask={deleteTask}
+        />
+      </div>
+    </div>
   );
 }
 
