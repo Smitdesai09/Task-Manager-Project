@@ -5,18 +5,20 @@ export function Progress({ tasks }) {
   return (
     <>
       {tasks.length > 0 && (
-        <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between bg-white p-5 border-0 rounded-xl">
-          <p className="text-xl font-semibold mb-2 lg:mb-0">Your Progress</p>
-          <div className="flex flex-col gap-2">
-            <p className="text-gray-700 text-sm">
-              You've completed {completed} out of {total} tasks.
+        <div className="flex flex-col items-start justify-between gap-3 bg-white p-5 border-0 rounded-xl shadow-md">
+          <div className="w-full flex flex-col lg:flex-row lg:justify-between items-start lg:items-center gap-1">
+            <p className="text-sm md:text-base lg:text-lg font-semibold">
+              You're making progress!
             </p>
-            <div className="w-120 h-2 bg-gray-200 rounded-full">
-              <div
-                className="h-full bg-red-500 rounded-full"
-                style={{ width: `${(completed / total) * 100}%` }}
-              />
-            </div>
+            <p className="text-xs text-gray-700 md:text-sm lg:text-base font-semibold">
+              {completed}/{total} tasks completed
+            </p>
+          </div>
+          <div className="w-full h-2 bg-gray-200 rounded-full">
+            <div
+              className="h-full bg-red-500 rounded-full"
+              style={{ width: `${(completed / total) * 100}%` }}
+            />
           </div>
         </div>
       )}

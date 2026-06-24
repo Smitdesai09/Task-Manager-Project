@@ -1,9 +1,8 @@
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { useEffect, useState } from "react";
 import "./App.css";
-import { Sidebar } from "./components/Sidebar";
-import { Progress } from "./components/Progress";
-import { TaskInput } from "./components/TaskInput";
-import { Tasks } from "./components/Tasks";
+import Today from './pages/Today';
+import Inbox  from "./pages/Inbox";
 
 function App() {
   const [tasks, setTasks] = useState(() => {
@@ -22,13 +21,19 @@ function App() {
     localStorage.setItem("tasks", JSON.stringify(tasks));
   }, [tasks]);
 
-  const filterTask = () => {
-    if (filter === "All") {
-      return tasks;
-    } else if (filter === "Pending") {
-      return tasks.filter((task) => task.isCompleted === false);
+  const filterTask = (view) => {
+    let filteredTasks = tasks;
+
+    if(view === "Today"){
+      filteredTasks = tasks.filter((task) => task.dueDate = new Date().toLocaleDateString('sv-SE'))
+    }
+
+    if(filter === "All"){
+      return filteredTasks;
+    }else if (filter === "Pending") {
+      return filteredTasks.filter((task) => task.isCompleted === false);
     } else if (filter === "Completed") {
-      return tasks.filter((task) => task.isCompleted === true);
+      return filteredTasks.filter((task) => task.isCompleted === true);
     }
   };
 
@@ -124,33 +129,35 @@ function App() {
     setDueDate(new Date().toLocaleDateString("sv-SE"));
   };
 
+  const appProps = {
+  tasks,
+  title,
+  description,
+  dueDate,
+  setTitle,
+  setDescription,
+  setDueDate,
+  createTask,
+  editId,
+  editTask,
+  clearInput,
+  filter,
+  setFilter,
+  filterTask,
+  setEdit,
+  toggleTask,
+  deleteTask,
+};
+
   return (
-    <div className="flex lg:gap-5 h-screen">
-      <Sidebar />
-      <div className="flex flex-col min-h-0 flex-1 gap-2 p-4 lg:py-3 lg:pr-6">
-        <Progress tasks={tasks} />
-        <TaskInput
-          title={title}
-          description={description}
-          dueDate={dueDate}
-          setTitle={setTitle}
-          setDescription={setDescription}
-          setDueDate={setDueDate}
-          createTask={createTask}
-          editId={editId}
-          editTask={editTask}
-          clearInput={clearInput}
-        />
-        <Tasks
-          filter={filter}
-          setFilter={setFilter}
-          filterTask={filterTask}
-          setEdit={setEdit}
-          toggleTask={toggleTask}
-          deleteTask={deleteTask}
-        />
-      </div>
-    </div>
+    <>
+      <BrowserRouter>
+        <Routes>
+          <Route path='/' element={<Today {...appProps} />} />
+          <Route path='/inbox' element={<Inbox {...appProps} />} />
+        </Routes>
+      </BrowserRouter>
+    </>
   );
 }
 
