@@ -16,6 +16,8 @@ function App() {
   const [dueDate, setDueDate] = useState(
     new Date().toLocaleDateString("sv-SE"),
   );
+  const [inputModal, setInputModal] = useState(false);
+  const [profileModal, setProfileModal] = useState(false);
 
   useEffect(() => {
     localStorage.setItem("tasks", JSON.stringify(tasks));
@@ -74,6 +76,7 @@ function App() {
     setTitle("");
     setDescription("");
     setDueDate(new Date().toLocaleDateString("sv-SE"));
+    setInputModal(false);
   };
 
   const setEdit = (id) => {
@@ -87,6 +90,7 @@ function App() {
     setTitle(task.title);
     setDescription(task.description);
     setDueDate(task.dueDate);
+    setInputModal(true);
   };
 
   const editTask = () => {
@@ -113,6 +117,7 @@ function App() {
     setTitle("");
     setDescription("");
     setDueDate(new Date().toLocaleDateString("sv-SE"));
+    setInputModal(false);
   };
 
   const deleteTask = (id) => {
@@ -133,6 +138,7 @@ function App() {
     setTitle("");
     setDescription("");
     setDueDate(new Date().toLocaleDateString("sv-SE"));
+    setInputModal(false)
   };
 
   const appProps = {
@@ -154,6 +160,10 @@ function App() {
     toggleTask,
     deleteTask,
     getTodaysTasks,
+    inputModal,
+    setInputModal,
+    profileModal,
+    setProfileModal
   };
 
   return (

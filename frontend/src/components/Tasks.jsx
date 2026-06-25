@@ -11,6 +11,7 @@ export function Tasks({
   view,
   getTodaysTasks,
   noTaskDescription,
+  setInputModal
 }) {
   const todaysTask = getTodaysTasks();
   const filteredTasks = filterTask(view);
@@ -47,18 +48,20 @@ export function Tasks({
             <p className="text-sm md:text-base text-gray-800 max-w-[70%] text-center">
               {noTaskDescription}
             </p>
-            <button className="py-2 px-8 bg-red-500 text-white font-semibold rounded-lg mt-5">
-              Add Task
+            <button 
+              className="py-2 px-8 bg-red-500 text-white text-sm lg:text-lg font-semibold rounded-lg mt-5"
+              onClick={() => setInputModal(true)}
+            >Add Task
             </button>
           </div>
         </div>
       ) : (
-        <div className="flex flex-col gap-3 mt-5">
-          <div className="flex gap-2 items-center ml-2">
-            <p className="flex items-start  text-gray-700 font-bold text-base md:text-lg lg:text-xl">
+        <div className="flex flex-col gap-2 mt-5">
+          <div className="flex gap-2 items-center">
+            <p className="flex items-start  text-gray-700 font-bold text-sm md:text-base lg:text-xl">
               Your Tasks
             </p>
-            <p className="text-xs lg:text-sm font-bold px-2.5 py-1 rounded-full bg-gray-100">
+            <p className="text-xs lg:text-sm font-semibold px-2.5 py-1 rounded-full bg-gray-100">
               {view === "Today" ? todaysTask.length : tasks.length}
             </p>
           </div>
@@ -82,7 +85,7 @@ export function Tasks({
               Done
             </button>
           </div>
-          <div className="flex flex-col rounded-xl shadow-md overflow-hidden">
+          <div className="flex flex-col rounded-xl shadow-sm overflow-hidden">
             {taskComponents}
           </div>
         </div>

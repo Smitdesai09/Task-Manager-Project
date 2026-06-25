@@ -11,7 +11,7 @@ export function Bottombar() {
     const isInbox = !isToday;
     
     return(
-        <div className="lg:hidden bg-white fixed left-0 right-0 bottom-0  flex items-center px-2 py-2 justify-between border-t-1 border-gray-200">
+        <div className="lg:hidden bg-white fixed left-0 right-0 bottom-0  flex items-center px-1.5 py-1.5 justify-between border-t-1 border-gray-200">
             <div 
                 className={`w-full flex flex-col items-center text-xs font-semibold gap-1 px-10 py-1 rounded-lg ${isToday ? "text-red-600 bg-red-100" : "text-black"}`}
                 onClick={() => navigate("/")}>
