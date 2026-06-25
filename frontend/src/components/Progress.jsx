@@ -6,7 +6,7 @@ export function Progress({ getTodaysTasks }) {
   return (
     <>
       {todaysTasks.length > 0 && (
-        <div className="flex flex-col items-start justify-between gap-3 bg-white p-3 md:p-4 lg:p-5 border-0 rounded-xl shadow-sm">
+        <div className="flex flex-col items-start justify-between gap-3 bg-white p-3.5 md:p-4 lg:p-5 border-0 rounded-xl shadow-sm">
           <div className="w-full flex flex-col md:flex-row md:justify-between items-start md:items-center gap-1">
             <p className="text-sm md:text-base lg:text-lg font-semibold">
               You're making progress!

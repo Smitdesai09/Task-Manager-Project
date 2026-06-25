@@ -67,19 +67,19 @@ export function Tasks({
           </div>
           <div className="flex px-2 md:px-3 py-2 md:py-3 gap-1 bg-white w-full rounded-xl shadow-sm">
             <button
-              className={`w-full md:w-fit px-4 md:px-8 py-1.5 rounded-lg text-xs md:text-sm lg:text-lg font-semibold ${filter === "All" ? "bg-red-500 text-white border-0" : "border-1 border-gray-200"}`}
+              className={`w-full md:w-fit px-4 md:px-8 py-2 rounded-lg text-xs md:text-sm lg:text-lg font-semibold ${filter === "All" ? "bg-red-500 text-white border-0" : "border-2 border-gray-200"}`}
               onClick={() => setFilter("All")}
             >
               All
             </button>
             <button
-              className={`w-full md:w-fit px-4 md:px-8 py-1.5 rounded-lg text-xs md:text-sm lg:text-lg font-semibold ${filter === "Pending" ? "bg-red-500 text-white border-0" : "border-1 border-gray-200"}`}
+              className={`w-full md:w-fit px-4 md:px-8 py-2 rounded-lg text-xs md:text-sm lg:text-lg font-semibold ${filter === "Pending" ? "bg-red-500 text-white border-0" : "border-2 border-gray-200"}`}
               onClick={() => setFilter("Pending")}
             >
               Due
             </button>
             <button
-              className={`w-full md:w-fit px-4 md:px-8 py-1.5 rounded-lg text-xs md:text-sm lg:text-lg font-semibold ${filter === "Completed" ? "bg-red-500 text-white border-0" : "border-1 border-gray-200"}`}
+              className={`w-full md:w-fit px-4 md:px-8 py-2 rounded-lg text-xs md:text-sm lg:text-lg font-semibold ${filter === "Completed" ? "bg-red-500 text-white border-0" : "border-2 border-gray-200"}`}
               onClick={() => setFilter("Completed")}
             >
               Done
