@@ -13,7 +13,7 @@ export function Sidebar() {
   const isInbox = !isToday;
 
   return (
-    <aside className="hidden lg:flex fixed left-0 top-0 bottom-0 w-60 h-screen bg-white shadow-sm border-r border-gray-200 flex-col justify-between px-3 py-5">
+    <aside className="hidden lg:flex fixed left-0 top-0 bottom-0 w-60 h-screen bg-white border-r border-gray-200 flex-col justify-between px-3 py-5">
       <div className="flex flex-1 flex-col gap-8 items-start">
         <img className="ml-2 mt-2 w-42" src={appLogo} />
 

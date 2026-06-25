@@ -12,8 +12,8 @@ export function Task({
   setEdit,
 }) {
   return (
-    <div className="flex items-center justify-between bg-white border-b-2 last:border-b-0 border-gray-200 px-3 lg:px-5 py-3">
-      <div className="flex items-start gap-3 md:gap-6 min-w-0">
+    <div className="flex items-center justify-between bg-white border-b-2 last:border-b-0 border-gray-200 px-3.5 lg:px-5 py-3">
+      <div className="flex items-start gap-4 md:gap-6 min-w-0">
         <input
           className="mt-2 lg:mt-3 scale-110 md:scale-130 lg:scale-150 accent-red-500"
           type="checkbox"
@@ -30,7 +30,7 @@ export function Task({
             {description === "" ? "–" : description}
           </p>
 
-          <p className="text-xs md:text-sm text-red-500 font-semibold mt-1">
+          <p className="text-xs md:text-sm text-gray-500 font-semibold mt-1">
             {dueDate}
           </p>
         </div>

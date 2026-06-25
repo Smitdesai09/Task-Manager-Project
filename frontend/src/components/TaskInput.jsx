@@ -17,7 +17,7 @@ export function TaskInput({
   return (
     <>
       {/* add-btn card */}
-      <div className="bg-red-50 rounded-xl flex p-5 justify-between shadow-sm">
+      <div className="bg-[#fff1f2] rounded-xl flex py-3 px-4 md:py-4 md:px-5 justify-between shadow-sm">
         <div className="flex flex-col gap-2">
           <h2 className="text-2xl lg:text-3xl font-semibold font-serif italic">{cardTitle}</h2>
           <p className="text-xs lg:text-sm text-gray-700 font-semibold max-w-[70%] md:max-w-[100%] leading-normal">{cardHeadline}</p>
@@ -31,8 +31,8 @@ export function TaskInput({
       </div>
 
       {inputModal && (
-        <div className="fixed inset-0 bg-black/50 z-50 flex items-start justify-center pt-30">
-          <div className="w-full max-w-[70%] flex flex-col p-4 lg:p-6 gap-3 lg:gap-4 bg-white border-0 rounded-xl shadow-xl">
+        <div className="fixed inset-0 bg-black/50 z-50 flex items-start justify-center pt-20 md:items-center md:pt-0">
+          <div className="w-full max-w-[85%] md:max-w-[60%] flex flex-col p-4 lg:p-6 gap-3 lg:gap-4 bg-white border-0 rounded-xl shadow-xl">
             <div className="flex items-start text-lg font-semibold">{editId ? "Update Task" : "Add Task"}</div>
             <div className="flex flex-col md:flex-row items-center gap-3 lg:gap-5">
               <input

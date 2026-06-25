@@ -56,12 +56,12 @@ export function Tasks({
           </div>
         </div>
       ) : (
-        <div className="flex flex-col gap-2 mt-5">
-          <div className="flex gap-2 items-center">
-            <p className="flex items-start  text-gray-700 font-bold text-sm md:text-base lg:text-xl">
+        <div className="flex flex-col gap-2 mt-3">
+          <div className="flex gap-2 items-center ml-1">
+            <p className="flex items-start  text-gray-700 font-bold text-base lg:text-xl">
               Your Tasks
             </p>
-            <p className="text-xs lg:text-sm font-semibold px-2.5 py-1 rounded-full bg-gray-100">
+            <p className="text-xs lg:text-sm font-bold px-2 py-0.5 rounded-full bg-gray-200">
               {view === "Today" ? todaysTask.length : tasks.length}
             </p>
           </div>
