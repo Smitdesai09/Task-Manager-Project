@@ -14,6 +14,13 @@ export function Tasks({
 }) {
   const todaysTask = getTodaysTasks();
   const filteredTasks = filterTask(view);
+  let decider;
+  if(view === "Today"){
+    decider = todaysTask;
+  }
+  else{
+    decider = tasks;
+  }
 
   const taskComponents = filteredTasks.map((task) => {
     return (
@@ -33,7 +40,7 @@ export function Tasks({
 
   return (
     <>
-      {filteredTasks.length === 0 ? (
+      {decider.length === 0 ? (
         <div className="bg-white min-h-80 lg:min-h-120 border-0 border-gray-200 rounded-xl shadow-sm flex flex-col justify-center">
           <div className="w-full flex flex-col items-center gap-3 md:gap-5">
             <p className="text-xl md:text-2xl font-bold italic">No tasks yet</p>
