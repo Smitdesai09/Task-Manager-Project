@@ -53,8 +53,8 @@ export function Tasks({
           </div>
         </div>
       ) : (
-        <div className="flex flex-col gap-3">
-          <div className="flex gap-2 items-center">
+        <div className="flex flex-col gap-3 mt-5">
+          <div className="flex gap-2 items-center ml-2">
             <p className="flex items-start  text-gray-700 font-bold text-base md:text-lg lg:text-xl">
               Your Tasks
             </p>

@@ -10,7 +10,7 @@ function Today({tasks, title, description, dueDate, setTitle, setDescription, se
     <div>
       <Sidebar />
       <Topbar />
-      <div className="flex flex-col lg:ml-62 pb-20 gap-6 p-4 py-2 lg:py-3 lg:pr-6">
+      <div className="flex flex-col lg:ml-62 pb-20 gap-3 p-4 py-2 lg:py-3 lg:pr-6">
         <Progress getTodaysTasks={getTodaysTasks} />
         <TaskInput
           title={title}

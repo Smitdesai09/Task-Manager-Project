@@ -27,7 +27,7 @@ export function Task({
           </h4>
 
           <p className="text-xs font-semibold text-gray-700 truncate mt-1">
-            {description === "" ? "-" : description}
+            {description === "" ? "–" : description}
           </p>
 
           <p className="text-xs md:text-sm text-red-500 font-semibold mt-1">
