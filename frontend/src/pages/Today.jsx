@@ -5,13 +5,13 @@ import { TaskInput } from "../components/TaskInput";
 import { Tasks } from "../components/Tasks";
 import { Bottombar } from "../components/Bottombar";
 
-function Today({tasks, title, description, dueDate, setTitle, setDescription, setDueDate, createTask, editId, editTask, clearInput, filter, setFilter, filterTask, setEdit, toggleTask, deleteTask}) {
+function Today({tasks, title, description, dueDate, setTitle, setDescription, setDueDate, createTask, editId, editTask, clearInput, filter, setFilter, filterTask, setEdit, toggleTask, deleteTask, getTodaysTasks}) {
   return (
     <div>
       <Sidebar />
       <Topbar />
-      <div className="flex flex-col lg:ml-62 pb-20 gap-4 p-4 pt-2 lg:py-3 lg:pr-6">
-        <Progress tasks={tasks} />
+      <div className="flex flex-col lg:ml-62 pb-20 gap-6 p-4 py-2 lg:py-3 lg:pr-6">
+        <Progress getTodaysTasks={getTodaysTasks} />
         <TaskInput
           title={title}
           description={description}
@@ -25,6 +25,7 @@ function Today({tasks, title, description, dueDate, setTitle, setDescription, se
           clearInput={clearInput}
         />
         <Tasks
+          tasks={tasks}
           filter={filter}
           setFilter={setFilter}
           filterTask={filterTask}
@@ -32,6 +33,8 @@ function Today({tasks, title, description, dueDate, setTitle, setDescription, se
           toggleTask={toggleTask}
           deleteTask={deleteTask}
           view="Today"
+          getTodaysTasks={getTodaysTasks}
+          noTaskDescription="Looks like your task list is empty. Create your first task and start organizing your day!"
         />
       </div>
       <Bottombar />

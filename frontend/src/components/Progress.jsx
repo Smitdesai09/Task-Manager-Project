@@ -1,11 +1,12 @@
-export function Progress({ tasks }) {
-  const completed = tasks.filter((task) => task.isCompleted === true).length;
-  const total = tasks.length;
+export function Progress({ getTodaysTasks }) {
+  const todaysTasks = getTodaysTasks()
+  const completed = todaysTasks.filter((task) => task.isCompleted === true).length;
+  const total = todaysTasks.length;
 
   return (
     <>
-      {tasks.length > 0 && (
-        <div className="flex flex-col items-start justify-between gap-3 bg-white p-5 border-0 rounded-xl shadow-md">
+      {todaysTasks.length > 0 && (
+        <div className="flex flex-col items-start justify-between gap-3 bg-white p-3 md:p-4 lg:p-5 border-0 rounded-xl shadow-md">
           <div className="w-full flex flex-col lg:flex-row lg:justify-between items-start lg:items-center gap-1">
             <p className="text-sm md:text-base lg:text-lg font-semibold">
               You're making progress!

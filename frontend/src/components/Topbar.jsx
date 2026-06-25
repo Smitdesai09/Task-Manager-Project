@@ -1,17 +1,17 @@
 import appLogo from "../assets/app-logo.png";
-import profileIconRed from "../assets/profile-icon-red.png";
+import profileIcon from "../assets/profile-icon.png";
 
 export function Topbar(){
     return(
-        <div className="lg:hidden flex items-center justify-between w-full px-5 pt-3 pb-5">
+        <div className="lg:hidden flex items-center justify-between w-full px-4 pt-4 pb-4">
             <img 
-                className="w-40"
+                className="w-32"
                 src={appLogo} 
             />
-            <div className="bg-white border-2 border-gray-500 rounded-full p-2">
+            <div>
                 <img 
-                    className="w-5"
-                    src={profileIconRed}
+                    className="w-8"
+                    src={profileIcon}
                 />
             </div>
         </div>

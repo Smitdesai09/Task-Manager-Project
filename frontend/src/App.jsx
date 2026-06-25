@@ -1,8 +1,8 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useEffect, useState } from "react";
 import "./App.css";
-import Today from './pages/Today';
-import Inbox  from "./pages/Inbox";
+import Today from "./pages/Today";
+import Inbox from "./pages/Inbox";
 
 function App() {
   const [tasks, setTasks] = useState(() => {
@@ -21,16 +21,21 @@ function App() {
     localStorage.setItem("tasks", JSON.stringify(tasks));
   }, [tasks]);
 
+  const getTodaysTasks = () => {
+    return tasks.filter(
+      (task) => task.dueDate == new Date().toLocaleDateString("sv-SE"),
+    );
+  };
   const filterTask = (view) => {
     let filteredTasks = tasks;
 
-    if(view === "Today"){
-      filteredTasks = tasks.filter((task) => task.dueDate = new Date().toLocaleDateString('sv-SE'))
+    if (view === "Today") {
+      filteredTasks = getTodaysTasks();
     }
 
-    if(filter === "All"){
+    if (filter === "All") {
       return filteredTasks;
-    }else if (filter === "Pending") {
+    } else if (filter === "Pending") {
       return filteredTasks.filter((task) => task.isCompleted === false);
     } else if (filter === "Completed") {
       return filteredTasks.filter((task) => task.isCompleted === true);
@@ -68,6 +73,7 @@ function App() {
     ]);
     setTitle("");
     setDescription("");
+    setDueDate(new Date().toLocaleDateString("sv-SE"));
   };
 
   const setEdit = (id) => {
@@ -130,31 +136,32 @@ function App() {
   };
 
   const appProps = {
-  tasks,
-  title,
-  description,
-  dueDate,
-  setTitle,
-  setDescription,
-  setDueDate,
-  createTask,
-  editId,
-  editTask,
-  clearInput,
-  filter,
-  setFilter,
-  filterTask,
-  setEdit,
-  toggleTask,
-  deleteTask,
-};
+    tasks,
+    title,
+    description,
+    dueDate,
+    setTitle,
+    setDescription,
+    setDueDate,
+    createTask,
+    editId,
+    editTask,
+    clearInput,
+    filter,
+    setFilter,
+    filterTask,
+    setEdit,
+    toggleTask,
+    deleteTask,
+    getTodaysTasks,
+  };
 
   return (
     <>
       <BrowserRouter>
         <Routes>
-          <Route path='/' element={<Today {...appProps} />} />
-          <Route path='/inbox' element={<Inbox {...appProps} />} />
+          <Route path="/" element={<Today {...appProps} />} />
+          <Route path="/inbox" element={<Inbox {...appProps} />} />
         </Routes>
       </BrowserRouter>
     </>
