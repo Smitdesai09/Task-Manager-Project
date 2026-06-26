@@ -5,10 +5,10 @@ import logoutIcon from "../assets/logout-icon.png";
 export function Topbar({ profileModal, setProfileModal }) {
   return (
     <div className="relative">
-      <div className="lg:hidden flex items-center justify-between w-full px-4 pt-4 pb-4">
-        <img className="w-32" src={appLogo} />
+      <div className="lg:hidden flex items-center justify-between w-full px-5 pt-4 pb-2">
+        <img className="w-34" src={appLogo} />
         <div onClick={() => setProfileModal(!profileModal)}>
-          <img className="w-8" src={profileIcon} />
+          <img className="w-9" src={profileIcon} />
         </div>
       </div>
 

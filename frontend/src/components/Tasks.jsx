@@ -56,7 +56,7 @@ export function Tasks({
           </div>
         </div>
       ) : (
-        <div className="flex flex-col gap-2 mt-3">
+        <div className="flex flex-col gap-2 lg:gap-3 mt-3 lg:mt-4">
           <div className="flex gap-2 items-center ml-1">
             <p className="flex items-start  text-gray-700 font-bold text-base lg:text-xl">
               Your Tasks
@@ -65,21 +65,21 @@ export function Tasks({
               {view === "Today" ? todaysTask.length : tasks.length}
             </p>
           </div>
-          <div className="flex px-2 md:px-3 py-2 md:py-3 gap-1 bg-white w-full rounded-xl shadow-sm">
+          <div className="flex gap-1">
             <button
-              className={`w-full md:w-fit px-4 md:px-8 py-2 rounded-lg text-xs md:text-sm lg:text-lg font-semibold ${filter === "All" ? "bg-red-500 text-white border-0" : "border-2 border-gray-200"}`}
+              className={`px-5 md:px-7 py-1.5 rounded-lg text-xs md:text-sm lg:text-base font-semibold ${filter === "All" ? "bg-red-500 text-white border-0" : "border-1 bg-white border-gray-200"}`}
               onClick={() => setFilter("All")}
             >
               All
             </button>
             <button
-              className={`w-full md:w-fit px-4 md:px-8 py-2 rounded-lg text-xs md:text-sm lg:text-lg font-semibold ${filter === "Pending" ? "bg-red-500 text-white border-0" : "border-2 border-gray-200"}`}
+              className={`px-5 md:px-7 py-1.5 rounded-lg text-xs md:text-sm lg:text-base font-semibold ${filter === "Pending" ? "bg-red-500 text-white border-0" : "border-1 bg-white border-gray-200"}`}
               onClick={() => setFilter("Pending")}
             >
               Due
             </button>
             <button
-              className={`w-full md:w-fit px-4 md:px-8 py-2 rounded-lg text-xs md:text-sm lg:text-lg font-semibold ${filter === "Completed" ? "bg-red-500 text-white border-0" : "border-2 border-gray-200"}`}
+              className={`px-5 md:px-7 py-1.5 rounded-lg text-xs md:text-sm lg:text-base font-semibold ${filter === "Completed" ? "bg-red-500 text-white border-0" : "border-1 bg-white border-gray-200"}`}
               onClick={() => setFilter("Completed")}
             >
               Done
