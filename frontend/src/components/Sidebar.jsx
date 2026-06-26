@@ -19,7 +19,7 @@ export function Sidebar() {
 
         <div className="flex flex-col gap-2 w-full">
           <div
-            className={`flex gap-3 font-semibold py-3 px-4 w-full rounded-lg cursor-pointer ${isToday ? "text-red-500 bg-red-50" : "text-black"} `}
+            className={`flex gap-3 font-semibold py-3 px-4 w-full rounded-lg hover:bg-gray-100 cursor-pointer ${isToday ? "text-red-500 bg-red-50 hover:bg-red-100" : "text-black"} `}
             onClick={() => navigate("/")}
           >
             <img
@@ -29,7 +29,7 @@ export function Sidebar() {
             <p>Today</p>
           </div>
           <div
-            className={`flex gap-3 font-semibold py-3 px-4 w-full rounded-lg cursor-pointer ${isInbox ? "text-red-500 bg-red-50" : "text-black"} `}
+            className={`flex gap-3 font-semibold py-3 px-4 w-full rounded-lg hover:bg-gray-100 cursor-pointer ${isInbox ? "text-red-500 bg-red-50 hover:bg-red-100" : "text-black"} `}
             onClick={() => navigate("/inbox")}
           >
             <img
@@ -43,7 +43,7 @@ export function Sidebar() {
 
       <div className="flex flex-col gap-2 bg-gray-100 py-4 px-5 border-0 rounded-lg">
         <p className="text-sm font-semibold">smitdesai972@gmail.com</p>
-        <div className="flex gap-2 items-center cursor-pointer">
+        <div className="flex gap-2 items-center cursor-pointer hover:bg-red-100 p-2 rounded-lg">
           <p className="text-red-500 text-sm font-semibold">Logout</p>
           <img className="w-6" src={logoutIcon} />
         </div>

@@ -49,7 +49,7 @@ export function Tasks({
               {noTaskDescription}
             </p>
             <button 
-              className="py-2 px-8 bg-red-500 text-white text-sm lg:text-lg font-semibold rounded-lg mt-5"
+              className="py-2 px-8 bg-red-500 text-white text-sm lg:text-lg font-semibold rounded-lg mt-5 hover:bg-red-600 active:scale-95 cursor-pointer transition-all duration-300"
               onClick={() => setInputModal(true)}
             >Add Task
             </button>
@@ -59,7 +59,7 @@ export function Tasks({
         <div className="flex flex-col gap-2 lg:gap-3 mt-3 lg:mt-4">
           <div className="flex gap-2 items-center ml-1">
             <p className="flex items-start  text-gray-700 font-bold text-base lg:text-xl">
-              Your Tasks
+              {view === "Today" ? 'Today\'s Tasks' : 'Your Tasks'}
             </p>
             <p className="text-xs lg:text-sm font-bold px-2 py-0.5 rounded-full bg-gray-200">
               {view === "Today" ? todaysTask.length : tasks.length}
@@ -67,19 +67,19 @@ export function Tasks({
           </div>
           <div className="flex gap-1">
             <button
-              className={`px-5 md:px-7 py-1.5 rounded-lg text-xs md:text-sm lg:text-base font-semibold ${filter === "All" ? "bg-red-500 text-white border-0" : "border-1 bg-white border-gray-200"}`}
+              className={`px-6 md:px-7 py-1.5 rounded-md text-xs md:text-sm lg:text-base font-semibold ${filter === "All" ? "bg-red-500 text-white border-0" : "border-1 bg-white border-gray-200"}`}
               onClick={() => setFilter("All")}
             >
               All
             </button>
             <button
-              className={`px-5 md:px-7 py-1.5 rounded-lg text-xs md:text-sm lg:text-base font-semibold ${filter === "Pending" ? "bg-red-500 text-white border-0" : "border-1 bg-white border-gray-200"}`}
+              className={`px-6 md:px-7 py-1.5 rounded-md text-xs md:text-sm lg:text-base font-semibold ${filter === "Pending" ? "bg-red-500 text-white border-0" : "border-1 bg-white border-gray-200"}`}
               onClick={() => setFilter("Pending")}
             >
               Due
             </button>
             <button
-              className={`px-5 md:px-7 py-1.5 rounded-lg text-xs md:text-sm lg:text-base font-semibold ${filter === "Completed" ? "bg-red-500 text-white border-0" : "border-1 bg-white border-gray-200"}`}
+              className={`px-6 md:px-7 py-1.5 rounded-md text-xs md:text-sm lg:text-base font-semibold ${filter === "Completed" ? "bg-red-500 text-white border-0" : "border-1 bg-white border-gray-200"}`}
               onClick={() => setFilter("Completed")}
             >
               Done

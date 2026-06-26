@@ -24,7 +24,7 @@ export function TaskInput({
         </div>
         <div className="flex items-center">
           <button 
-            className="bg-red-500 text-sm lg:text-lg text-white font-semibold px-6 py-2 rounded-lg"
+            className="bg-red-500 text-sm lg:text-lg text-white font-semibold px-6 py-2 rounded-lg hover:bg-red-600 active:scale-95 cursor-pointer transition-all duration-300"
             onClick={() => setInputModal(true)}      
           >Add Task</button>
         </div>
@@ -58,13 +58,13 @@ export function TaskInput({
             />
             <div className="flex justify-end gap-2">
               <button
-                className="text-xs md:text-sm lg:text-base font-semibold text-gray-900 border-2 border-gray-500  py-2 px-6 lg:px-8 rounded-lg cursor-pointer"
+                className="text-xs md:text-sm lg:text-base font-semibold text-gray-900 border-2 border-gray-500  py-2 px-6 lg:px-8 rounded-lg cursor-pointer hover:bg-gray-100 active:scale-95 transition-all duration-300"
                 onClick={clearInput}
               >
                 Cancel
               </button>
               <button
-                className="text-xs md:text-sm lg:text-base font-semibold bg-red-500 text-white py-2  px-6 lg:px-8 rounded-lg cursor-pointer"
+                className="text-xs md:text-sm lg:text-base font-semibold bg-red-500 text-white py-2  px-6 lg:px-8 rounded-lg cursor-pointer hover:bg-red-600 active:scale-95 transition-all duration-300"
                 onClick={editId ? editTask : createTask}
               >
                 {editId ? "Update Task" : "Add Task"}
